@@ -63,7 +63,7 @@ abstract class _Parser {
   static _parse(List<int> bytes, parse(List<int> bytes)) {
     try {
       return parse(bytes);
-    } on FormatException catch(e) {
+    } on FormatException {
       return null;
     }
   }
@@ -76,8 +76,7 @@ abstract class _Parser {
     var size = bytes[1] | (bytes[2] << 8);
     if ((size == 0) || (size + 3 > bytes.length)) _error("Invalid data size: ${size}");
 
-    // Poor Man's CharsetDecoder.
-    var data = new String.fromCharCodes(bytes.sublist(3, 3 + size));
+    var data = _utf16(bytes.sublist(3, 3 + size));
 
     return _parseInstances(data);
   }

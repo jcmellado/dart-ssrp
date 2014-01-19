@@ -118,7 +118,7 @@ Logger.root.onRecord.listen((rec) {
 });
 ```
 
-### SQL Express ###
+### SQL Server Express ###
 DAC is disabled by default. It can be activated adding the `-T7808` flag to the startup parameters of the server (SQL Server Configuration Manager >  SQL Server Services > SQL Server (SQLEXPRESS) > Startup Parameters).
 
 The TCP port number retrieved with the `getDacTcpPort` method can be used for connecting a local server, or a remote server if the installation supports it,  with the `sqlcmd` command line tool:

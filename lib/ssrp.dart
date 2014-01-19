@@ -29,12 +29,13 @@
 library ssrp;
 
 import "dart:async" show Completer, Future, Timer;
-import "dart:io" show InternetAddress, InternetAddressType, RawDatagramSocket, RawSocketEvent;
+import "dart:io" show InternetAddress, InternetAddressType, RawDatagramSocket,
+    RawSocketEvent, SYSTEM_ENCODING;
 import "package:logging/logging.dart" show Logger;
 
 part "src/client.dart";
+part "src/encoding.dart";
 part "src/parser.dart";
-part "src/util.dart";
 
 /// SSRP protocol version.
 const int SSRP_PROTOCOL_VERSION = 0x01;

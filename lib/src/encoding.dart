@@ -23,14 +23,16 @@
 part of ssrp;
 
 /**
- * Returns the number of bytes required to store [str].
+ * Converts [str] from UTF-16 to MBCS using the current code page (Windows).
  */
-int _byteLength(String str)
-  => str.codeUnits.fold(0, (prev, char) => prev + ((char.bitLength - 1) ~/ 8) + 1);
+List<int> _mbcs(String str) => SYSTEM_ENCODING.encode(str);
 
 /**
- * Expands each character of [str] into one or two bytes (little-endian encoding).
+ * Converts [bytes] from MBCS to UTF-16 using the current code page (Windows).
  */
-List<int> _mbcs(String str) => str.codeUnits.expand(_mbcsChar).toList(growable: false);
+String _utf16(List<int> bytes) => SYSTEM_ENCODING.decode(bytes);
 
-List<int> _mbcsChar(int char) => char < 256 ? [char] : [char & 0xff, char >> 8];
+/**
+ * Returns the length of [str] as MBCS.
+ */
+int _byteLength(String str) => _mbcs(str).length;
