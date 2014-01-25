@@ -19,7 +19,7 @@
 # THE SOFTWARE.
 
 name: ssrp
-version: 0.2.0
+version: 0.3.0
 author: Juan Mellado <jcmellado@gmail.com>
 homepage: http://code.google.com/p/dart-ssrp/
 description: SQL Server Resolution Protocol.
